@@ -1,0 +1,9 @@
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Other common files to ignore
+.DS_Store
+.vscode/
