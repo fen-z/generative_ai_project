@@ -1,0 +1,3 @@
+## 2025-02-01 - Decorator Hot Path Optimization
+**Learning:** `inspect.signature` is extremely slow when called inside a decorator's wrapper (on every call). Moving it to the decorator application time (the outer function) reduces overhead significantly. Additionally, using `hashlib.sha256` for in-memory cache keys is redundant and slow compared to using the serialized string directly, as Python hashes strings efficiently for dictionary lookups.
+**Action:** Always move static introspection (like `inspect.signature`) outside the `wrapper` in decorators. Use built-in hashing for local cache keys unless fixed-length keys are strictly required.
